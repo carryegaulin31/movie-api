@@ -6,7 +6,7 @@ const getAllMovies = (request, response) => {
 const getTitle = (request, response) => {
   const { title } = request.params
 
-  const foundTitle = movies.filter((movie) => parseInt(movie.title === parseInt(title)))
+  const foundTitle = movies.filter((movie) => (movie.title.toLowerCase().includes(title)))
 
   return response.send(foundTitle)
 }
@@ -14,7 +14,7 @@ const getTitle = (request, response) => {
 const directorMatch = (request, response) => {
   const { directorOnly } = request.params
 
-  const theDirector = movies.filter((movies) => parseInt(movies.directors === parseInt(directorOnly)))
+  const theDirector = movies.filter((movie) => (movie.directors.toString().toLowerCase()(directorOnly)))
 
   return response.send(theDirector)
 }
