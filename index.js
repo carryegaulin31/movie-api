@@ -1,17 +1,16 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-const movies = require('./movies')
+// const bodyParser = require('body-parser')
+const { getAllMovies } = require('./controllers/movies')
 const app = express()
 
-app.get('/', (request, response) => {
-  return response.render('index', { movies })
-})
+app.get('/movies', getAllMovies)
+
 
 app.all('*', (request, response) => {
   return response.sendStatus(404)
 })
 
-app.post('/', bodyParser.json(), saveNewHero) // obviously NOT saveNewHero
+// app.post('/', bodyParser.json(), saveNewMovie) // obviously NOT saveNewHero
 
 app.listen(1337, () => {
   // eslint-disable-next-line no-console
