@@ -4,11 +4,9 @@
   "description": "## Instructions",
   "main": ".eslintrc.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "eslint": "/node_modules/bin/eslint --format codeframe .",
-    "lint": "npm run eslint && npm run puglint",
-    "lint: fix": "/node_modules/bin/eslint --fix --format codeframe .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "./node_modules/.bin/nodemon index.js",
+    "lint": "./node_modules/.bin/eslint --format codeframe .",
+    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe ."
   },
   "repository": {
     "type": "git",
