@@ -3,13 +3,20 @@ const movies = require('../movies')
 const getAllMovies = (request, response) => {
   return response.send(movies)
 }
-
-const titleMatch = (request, response) => {
+const getTitle = (request, response) => {
   const { title } = request.params
 
-  const theTitle = movies.filter((movie) => movie.title === title)
+  const foundTitle = movies.filter((movie) => parseInt(movie.title === parseInt(title)))
 
-  return response.send(theTitle)
+  return response.send(foundTitle)
+}
+
+const directorMatch = (request, response) => {
+  const { directorOnly } = request.params
+
+  const theDirector = movies.filter((movies) => parseInt(movies.directors === parseInt(directorOnly)))
+
+  return response.send(theDirector)
 }
 
 const saveNewMovie = (request, response) => {
@@ -28,7 +35,7 @@ const saveNewMovie = (request, response) => {
 
   movies.push(newMovie)
 
-  return response.send(newMovie)
+  return response.status(201).send(newMovie)
 }
 
-module.exports = { getAllMovies, titleMatch, saveNewMovie }
+module.exports = { getAllMovies, getTitle, directorMatch, saveNewMovie }
