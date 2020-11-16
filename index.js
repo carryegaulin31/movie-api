@@ -6,7 +6,7 @@ const app = express()
 
 app.get('/movies', getAllMovies)
 
-app.get('search:input', getByTitleOrDirector)
+app.get('/movies/:input', getByTitleOrDirector)
 
 app.post('/', bodyParser.json(), saveNewMovie)
 
