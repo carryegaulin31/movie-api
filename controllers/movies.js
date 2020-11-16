@@ -4,22 +4,18 @@ const getAllMovies = (request, response) => {
   return response.send(movies)
 }
 
-function checkDir(request, next) {
-  if (!request.params.directors) return next
+const getByTitleOrDirector = (request, response) => {
+  const { input } = request.params
 
-  request.params.directors = request.params.directors.toLowerCase()
-  next()
-}
-const getTitle = (request, response) => {
-  const { title } = request.params
+  const foundTitleAndDirector = movies.filter((movie) => {
+    return movie.title.toLowerCase().includes(input) ||
+      movie.directors.toString().toLowerCase().includes(input)
+  })
 
-  const foundTitle = movies.filter((movie) => (movie.title.toLowerCase().includes(title)))
-
-  return response.send(foundTitle)
+  return response.send(foundTitleAndDirector)
 }
 
-
-const directorMatch = (request, response) => {
+/* const directorMatch = (request, response) => {
   const { directorOnly } = request.params
 
   // eslint-disable-next-line max-len
@@ -28,7 +24,7 @@ const directorMatch = (request, response) => {
   })
 
   return response.send(theDirector)
-}
+} */
 
 const saveNewMovie = (request, response) => {
   const {
@@ -49,4 +45,4 @@ const saveNewMovie = (request, response) => {
   return response.status(201).send(newMovie)
 }
 
-module.exports = { getAllMovies, getTitle, checkDir, directorMatch, saveNewMovie }
+module.exports = { getAllMovies, getByTitleOrDirector, saveNewMovie }
