@@ -1,14 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { getAllMovies, getTitle, directorMatch, saveNewMovie } = require('./controllers/movies')
+const { getAllMovies, getTitle, directorMatch, saveNewMovie
+} = require('./controllers/movies')
 const app = express()
 
 app.get('/movies', getAllMovies)
 
 app.get('/movies/:title', getTitle)
 
-app.get('/movies/:director', directorMatch)
-
+app.get('/movies/:directors', directorMatch)
 
 app.post('/', bodyParser.json(), saveNewMovie)
 // or is it '/movies' either way it is not working
