@@ -15,17 +15,6 @@ const getByTitleOrDirector = (request, response) => {
   return response.send(foundTitleAndDirector)
 }
 
-/* const directorMatch = (request, response) => {
-  const { directorOnly } = request.params
-
-  // eslint-disable-next-line max-len
-  const theDirector = movies.filter((movie) => {
-    return movie.directors.toString().toLowerCase().includes(directorOnly)
-  })
-
-  return response.send(theDirector)
-} */
-
 const saveNewMovie = (request, response) => {
   const {
     title, directors, releaseDate, rating, runTime, genres

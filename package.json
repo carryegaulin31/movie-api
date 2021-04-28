@@ -5,6 +5,7 @@
   "main": ".eslintrc.js",
   "scripts": {
     "dev": "./node_modules/.bin/nodemon index.js",
+    "eslint": "/node_modules/bin/eslint --format codeframe .",
     "lint": "./node_modules/.bin/eslint --format codeframe .",
     "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe ."
   },
